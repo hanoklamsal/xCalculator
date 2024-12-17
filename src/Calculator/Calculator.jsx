@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { evaluate } from "mathjs"; // Import the evaluate function from math.js
 import "./Calculator.css";
 
 const Calculator = () => {
@@ -15,10 +14,7 @@ const Calculator = () => {
       setResult("Error");
     } else {
       try {
-        // Use math.js to safely evaluate the expression
-        const res = evaluate(expression);
-        
-        // Check for Infinity or NaN (although math.js will return a number, it's still safe to handle)
+        const res = eval(expression);
         if (res === Infinity) {
           setResult("Infinity");
         } else if (isNaN(res)) {
